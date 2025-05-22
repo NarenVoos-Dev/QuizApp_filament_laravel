@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Quiz</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #F9FAFB;
+    }
+
+    .panel-quiz {
+    width: 80%;
+    margin: 40px auto;
+    background-color: #1F2937;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .panel-quiz h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3B82F6;
+    margin-bottom: 20px;
+    }
+
+    .opciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    }
+
+    .opcion {
+    width: 45%;
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3B82F6;
+    color: #fff;
+    cursor: pointer;
+    }
+
+    .opcion:hover {
+    background-color: #2F6CBF;
+    }
+
+    .temporizador {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    }
+
+    .temporizador svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    }
+
+    .temporizador circle {
+    stroke-dasharray: 251.327;
+    stroke-dashoffset: 251.327;
+    transition: stroke-dashoffset 1s linear;
+    stroke: #10B981;
+    }
+
+    #tiempo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #10B981;
+    }
+
+    .resultado {
+    display: none;
+    text-align: center;
+    }
+
+    #mensaje {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #10B981;
+    }
+
+    #siguiente {
+    background-color: #3B82F6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    }
+
+    #siguiente:hover {
+    background-color: #2F6CBF;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="panel-quiz">
+    <h1 id="pregunta">¿Cuál es la capital de Francia?</h1>
+    <div class="opciones">
+      <button class="opcion" id="opcion-1">París</button>
+      <button class="opcion" id="opcion-2">Londres</button>
+      <button class="opcion" id="opcion-3">Berlín</button>
+      <button class="opcion" id="opcion-4">Roma</button>
+    </div>
+    <div class="temporizador">
+      <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke-width="10" stroke="#FF0000" fill="none" />
+      </svg>
+      <span id="tiempo">60</span>
+    </div>
+    <div class="resultado">
+      <p id="mensaje"></p>
+      <button id="siguiente">Siguiente pregunta</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+    <script>
+    let tiempo = 60;
+let intervalo;
+let preguntaActual = 0;
+let preguntas = [
+  {
+    pregunta: "¿Cuál es la capital de Francia?",
+    opciones: ["París", "Londres", "Berlín", "Roma"],
+    respuesta: 0
+  },
+  {
+    pregunta: "¿Cuál es la capital de España?",
+    opciones: ["Madrid", "Barcelona", "Valencia", "Sevilla"],
+    respuesta: 0
+  },
+  {
+    pregunta: "¿Cuál es la capital de Italia?",
+    opciones: ["Roma", "Milán", "Nápoles", "Turín"],
+    respuesta: 0
+  }
+];
+
+document.addEventListener("DOMContentLoaded", function() {
+  intervalo = setInterval(actualizarTiempo, 1000);
+  document.querySelectorAll(".opcion").forEach(function(opcion) {
+    opcion.addEventListener("click", verificarRespuesta);
+  });
+  document.getElementById("siguiente").addEventListener("click", siguientePregunta);
+  mostrarPreguntaActual();
+});
+
+function actualizarTiempo() {
+  tiempo--;
+  document.getElementById("tiempo").textContent = tiempo;
+  const circle = document.querySelector(".temporizador circle");
+  circle.style.strokeDashoffset = 251.327 - (251.327 * (tiempo / 60));
+  if (tiempo === 0) {
+    clearInterval(intervalo);
+    mostrarResultado("¡Tiempo agotado!");
+  }
+}
+
+function mostrarPreguntaActual() {
+  const pregunta = preguntas[preguntaActual];
+  document.getElementById("pregunta").textContent = pregunta.pregunta;
+  const opciones = document.querySelectorAll(".opcion");
+  opciones.forEach(function(opcion, indice) {
+    opcion.textContent = pregunta.opciones[indice];
+  });
+}
+
+function verificarRespuesta(evento) {
+  const opcion = evento.target;
+  const indiceOpcion = Array.prototype.indexOf.call(opcion.parentNode.children, opcion);
+  const pregunta = preguntas[preguntaActual];
+  if (indiceOpcion === pregunta.respuesta) {
+    mostrarResultado("¡Correcto!");
+  } else {
+    mostrarResultado("¡Incorrecto!");
+  }
+  clearInterval(intervalo);
+}
+
+function mostrarResultado(mensaje) {
+  document.getElementById("mensaje").textContent = mensaje;
+  document.querySelector(".resultado").style.display = "block";
+}
+
+function siguientePregunta() {
+  preguntaActual++;
+  if (preguntaActual >= preguntas.length) {
+    preguntaActual = 0;
+  }
+  mostrarPreguntaActual();
+  tiempo = 60;
+  intervalo = setInterval(actualizarTiempo, 1000);
+  document.querySelector(".resultado").style.display = "none";
+}
+
+  </script>
+</body>
+</html>
+
