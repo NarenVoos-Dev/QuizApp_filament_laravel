@@ -31,7 +31,7 @@ public function panel(Panel $panel): Panel
         ->id('admin')
         ->path('admin')
         ->login()
-        ->brandLogo(asset('assets/img/logo-ct-dark.png'))
+        ->brandLogo(asset('assets/img/logo-ct-white.png'))
         ->brandLogoHeight('7rem')
         ->brandName('QuizApp')
         ->favicon(asset('assets/img/favicon.png'))
