@@ -18,6 +18,10 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
+use App\Filament\Widgets\QuizAttemptsChart;
+use App\Filament\Widgets\QuizScorePieChart;
+use App\Filament\Widgets\QuizStatsOverview;
+
 class AdminPanelProvider extends PanelProvider
 {
 public function panel(Panel $panel): Panel
@@ -47,10 +51,16 @@ public function panel(Panel $panel): Panel
         ->pages([
             Pages\Dashboard::class,
         ])
-        ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
+        //->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
         ->widgets([
-            Widgets\AccountWidget::class,
-            Widgets\FilamentInfoWidget::class,
+            //Widgets\AccountWidget::class,
+            //Widgets\FilamentInfoWidget::class,
+            QuizStatsOverview::class,
+            QuizScorePieChart::class,
+            QuizAttemptsChart::class,
+           
+            
+            
         ])
         ->middleware([
             EncryptCookies::class,

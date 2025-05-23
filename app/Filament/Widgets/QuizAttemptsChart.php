@@ -17,6 +17,7 @@ class QuizAttemptsChart extends BarChartWidget
             ->get();
 
         return [
+            
             'datasets' => [
                 [
                     'label' => 'Intentos',
@@ -25,5 +26,9 @@ class QuizAttemptsChart extends BarChartWidget
             ],
             'labels' => $data->pluck('date')->map(fn ($d) => \Carbon\Carbon::parse($d)->format('d M')),
         ];
+    }
+        protected function getColumns(): int
+    {
+        return 6; // Ocupa media fila
     }
 }

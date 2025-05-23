@@ -4,21 +4,19 @@ namespace App\Filament\Widgets;
 
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
-use App\Models\Quiz;
+use App\Models\User;
 
-
-class TotalQuizzes extends BaseWidget
+class QuizUsuarios extends BaseWidget
 {
-    
     protected function getStats(): array
     {
         return [
-            Stat::make('Total de Quizzes', Quiz::count())
-                ->description('Número total de quizzes disponibles')
+            Stat::make('Usuarios', User::count())
+                ->description('Número total de usuarios registrados')
                 ->color('success'),
         ];
     }
-    
+
     protected function getColumns(): int
     {
         return 2; // Ocupa una fila completa debajo
