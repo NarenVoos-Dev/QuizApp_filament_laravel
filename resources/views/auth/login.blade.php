@@ -110,7 +110,7 @@
 <!-- Imagen lateral con logo -->
                         <div class="p-0 col-md-6 d-none d-md-flex align-items-center justify-content-center bg-dark">
                             <div class="w-100 h-100 d-flex align-items-center justify-content-center"
-                                style="background: url('{{ asset('assets/img/logo-ct-dark.png') }}') center center / cover no-repeat;">
+                                style="background: url('{{ asset('assets/img/logo-ct-white.png') }}') center center / cover no-repeat;">
                                 <!--<img src="{{ asset('assets/img/logo-ct-dark.png') }}" alt="Logo QuizApp"
                                     style="max-width: 250px; filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.4));">-->
                             </div>
