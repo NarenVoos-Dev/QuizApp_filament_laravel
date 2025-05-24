@@ -10,7 +10,7 @@ class EnsureAdminRole
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user()?->role !== 'administrador') {
+        if ($request->user()?->role !== 'usuario') {
             return redirect('/dashboard');
         }
 
