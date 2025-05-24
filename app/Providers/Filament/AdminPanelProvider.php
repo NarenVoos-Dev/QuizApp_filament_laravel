@@ -75,7 +75,7 @@ public function panel(Panel $panel): Panel
         ])
         ->authMiddleware([
             Authenticate::class,
-            'admin.role',
+            //'admin.role',
         ])
         ;
 }
