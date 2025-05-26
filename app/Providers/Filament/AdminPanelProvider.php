@@ -30,6 +30,7 @@ public function panel(Panel $panel): Panel
         ->default()
         ->id('admin')
         ->path('admin')
+        ->staticAssets()
         ->login()
         ->brandLogo(asset('assets/img/logo-ct-white.png'))
         ->brandLogoHeight('7rem')
