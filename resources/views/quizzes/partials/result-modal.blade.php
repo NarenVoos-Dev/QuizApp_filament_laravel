@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body" id="results-content"></div>
             <div class="modal-footer">
-                <a href="{{ route('quizzes.index') }}" class="btn btn-outline-primary">Volver a Quizzes</a>
+                <a href="{{ route('quizzes.index') }}" class="btn btn-outline-info">Volver a Quizzes</a>
             </div>
         </div>
     </div>

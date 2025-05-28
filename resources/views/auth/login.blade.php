@@ -21,9 +21,16 @@
             font-family: 'Inter', sans-serif;
         }
 
+        @media (max-width: 1200px) {
+            .cover-img {
+                display: none !important;
+            }
+        }
+
         .fade-in {
             animation: fadeIn 1s ease-in;
         }
+
 
         @keyframes fadeIn {
             from {
@@ -91,7 +98,7 @@
 
                                         <!-- Submit -->
                                         <div class="text-center">
-                                            <button type="submit" class="mt-4 mb-0 btn bg-gradient-warning w-100">Iniciar Sesión</button>
+                                            <button type="submit" class="mt-4 mb-0 btn bg-gradient-info w-100">Iniciar Sesión</button>
                                         </div>
                                     </form>
                                 </div>
@@ -108,11 +115,10 @@
 
                         <!-- Imagen lateral con logo -->
 <!-- Imagen lateral con logo -->
-                        <div class="p-0 col-md-6 d-none d-md-flex align-items-center justify-content-center bg-dark">
-                            <div class="w-100 h-100 d-flex align-items-center justify-content-center"
-                                style="background: url('{{ asset('assets/img/logo-ct-white.png') }}') center center / cover no-repeat;">
-                                <!--<img src="{{ asset('assets/img/logo-ct-dark.png') }}" alt="Logo QuizApp"
-                                    style="max-width: 250px; filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.4));">-->
+                        <div class="p-0 col-md-6 d-none d-md-flex align-items-center justify-content-center bg-dark cover-img">
+                            <div class="w-100 h-100 d-flex align-items-center justify-content-center" >
+                                <img src="{{ asset('assets/img/logo-ct-white.png') }}" alt="Logo QuizApp"
+                                    style="max-width: 550px; filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.4));">
                             </div>
                         </div>
 

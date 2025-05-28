@@ -24,7 +24,7 @@
             </ul>
           </div>
           <div class="text-center bg-transparent card-footer border-top-0">
-            <button class="btn btn-primary w-100 btn-start-quiz" data-quiz-id="{{ $quiz->id }}">
+            <button class="btn btn-info w-100 btn-start-quiz" data-quiz-id="{{ $quiz->id }}">
               {{ in_array($quiz->id, $attemptedQuizzes->toArray()) ? 'Ver Resultados' : 'Comenzar Quiz' }}
             </button>
           </div>

@@ -21,7 +21,7 @@
          stroke-dasharray: 251.327;
          stroke-dashoffset: 251.327;
          transition: stroke-dashoffset 1s linear;
-         stroke: #f59e0b;
+         stroke: #2256c2;
          /* naranja */
      }
 
@@ -31,8 +31,8 @@
          left: 50%;
          transform: translate(-50%, -50%);
          font-weight: bold;
-         color: #f59e0b;
-         font-size: 1.2rem;
+         color: black;
+         font-size: 3rem;
      }
      </style>
  </head>
@@ -85,7 +85,7 @@
                      <!-- Navegación -->
                      <div class="mt-3 d-flex justify-content-between">
                          <button type="button" id="prev-btn" class="btn btn-secondary" disabled>← Anterior</button>
-                         <button type="button" id="next-btn" class="btn btn-warning">Siguiente →</button>
+                         <button type="button" id="next-btn" class="btn btn-info">Siguiente →</button>
                          <button type="button" id="submit-btn" class="btn btn-success d-none">Finalizar Quiz</button>
                      </div>
                  </form>
@@ -95,7 +95,7 @@
 
                          </div>
                          <div class="mt-4 progress" style="height: 8px;">
-                             <div id="progress-bar" class="progress-bar bg-warning" style="width: 0%"></div>
+                             <div id="progress-bar" class="progress-bar bg-info" style="width: 0%"></div>
                          </div>
                          <div class="mt-1 text-end small text-muted">
                              Pregunta <span id="current-question-num">1</span>/{{ $quiz->questions->count() }}
@@ -166,11 +166,11 @@
                  const questionId = this.dataset.questionId;
                  document.querySelectorAll(`[data-question-id="${questionId}"]`).forEach(
                  btn => {
-                     btn.classList.remove('active', 'btn-primary');
+                     btn.classList.remove('active', 'btn-info');
                      btn.classList.add('btn-outline-dark');
                  });
 
-                 this.classList.add('active', 'btn-primary');
+                 this.classList.add('active', 'btn-info');
                  this.classList.remove('btn-outline-dark');
                  this.querySelector('input[type="radio"]').checked = true;
              });

@@ -30,15 +30,14 @@ public function panel(Panel $panel): Panel
         ->default()
         ->id('admin')
         ->path('admin')
-        ->staticAssets()
         ->login()
         ->brandLogo(asset('assets/img/logo-ct-white.png'))
-        ->brandLogoHeight('7rem')
+        ->brandLogoHeight('4rem')
         ->brandName('QuizApp')
         ->favicon(asset('assets/img/favicon.png'))
         ->font('poppins')
         ->colors([
-            'primary' =>Color::Emerald, // Personaliza colores si es necesario
+            'primary' =>Color::Blue, // Personaliza colores si es necesario
             'gray' => Color::Gray,
             'default' => Color::Amber,
 

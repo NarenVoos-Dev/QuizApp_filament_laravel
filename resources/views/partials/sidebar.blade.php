@@ -4,7 +4,7 @@
         <i class="top-0 p-3 cursor-pointer fas fa-times text-secondary opacity-5 position-absolute end-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
         <a class="m-0 navbar-brand" href="{{ route('quizzes.index') }}">
-            <img src="{{ asset('assets/img/logo-ct-dark.png') }}" class="navbar-brand-img" alt="main_logo">
+            <img src="{{ asset('assets/img/logo-ct-white.png') }}" class="navbar-brand-img" alt="main_logo">
         </a>
     </div>
     <hr class="mt-4 mb-4 horizontal dark">
@@ -74,7 +74,7 @@
         <li class="nav-item">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" class="mt-3 btn btn-primary w-100">
+                <button type="submit" class="mt-3 btn btn-info w-100">
                      Cerrar sesión
                 </button>
             </form>
